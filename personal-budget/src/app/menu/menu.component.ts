@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
-    document.cookie = "token = ";
+    document.cookie = "";
     window.location.href = "/";
   }
 

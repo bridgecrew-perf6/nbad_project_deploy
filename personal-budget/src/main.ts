@@ -14,14 +14,20 @@ var timer;
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 
-var cookieValue = document.cookie
-  .split('; ')
-  .find(row => row.startsWith('token'))
-  .split('=')[1];
+if (document.cookie == undefined || document.cookie == "") {
+  //dont do anything
+} else {
+  var cookieValue = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('token'))
+    .split('=')[1];
 
-if (cookieValue != undefined && cookieValue != "") {
-  start_timer();
+  if (cookieValue != undefined && cookieValue != "") {
+    start_timer();
+  }
 }
+
+
 
 
 function myFunction() {
@@ -33,7 +39,7 @@ function myFunction() {
     var confirm_status = confirm("Your token will be expired in 15 seconds. Do you want to refresh your token?");
     if (confirm_status == true) {
       refresh_token().then(function (res) {
-        document.cookie = "token = ";
+        document.cookie = "";
         console.log(res.data.token);
         document.cookie = 'token = ' + res.data.token;
         seconds = 60;

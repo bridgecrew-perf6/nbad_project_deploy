@@ -67,6 +67,9 @@ export class HomepageComponent implements OnInit {
       }
     }).catch(function (err) {
       alert(err.response.data.error);
+      if (err.response.data.error == "Token Expired. Please login again") {
+        window.location.href = "/";
+      }
     });
   }
 

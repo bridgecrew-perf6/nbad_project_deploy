@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
         console.log(res.data);
         document.cookie = 'token = ' + res.data.token;
         window.location.href = '/home';
+        // this.router.navigate = (['/home']);
       }).catch(function (err) {
         alert(err.response.data.error);
       });
