@@ -1,4 +1,4 @@
-# Personal-Budget Server
+# Personal-Budget
 
 ## **External Links**
 **_Source code_**
